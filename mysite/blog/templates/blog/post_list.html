@@ -2,19 +2,22 @@
 <html>
     <head>
         <title>My First Blog</title>
-    </head>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">	
+		<link rel="stylesheet" href="{% static 'css\blog.css' %}">
+	</head>
     <body>
-        <div>
+        <div class="page-header">
             <h1><a href="/">Starting with Django</a></h1>
         </div>
-        <div>
-		{% for post in posts %}
-			<h2><p>{{ post.author}}</p></h2>
-			<h4><a href="">{{ post.title }}</a></h4>
-			<p>{{ post.text|linebreaksbr }}</p>
-			<h4>{{ post.published_date }}</h4>
-
-		{% endfor %}    
-		</div>		
-</body>
+			{% for post in posts %}
+			<div class="division">
+				<h2><p>{{ post.author}}</p></h2>
+				<h4><a href="">{{ post.title }}</a></h4>
+				<p>{{ post.text|linebreaksbr }}</p>
+				<h4>{{ post.published_date }}</h4>
+			</div>		
+			<br>
+			{% endfor %}
+	</body>
 </html>
